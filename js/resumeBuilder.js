@@ -1,20 +1,22 @@
-function displayHeader(){
+var bio = {
+	"name" : "Sean Holcomb",
+	"role" : "Web Developer",
+	"contacts" : {
+		"mobile" : "(858)449-5236",
+		"email" : "seanholcomb@gmail.com",
+		"github" : "sean-holcomb",
+		"location" : "San Diego"
+	},
+	"skills" : [
+		"JavaScript", "Python", "Java", "SQL", "Android", "HTML5", "CSS3"
+	],
+	"bioPic": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAL3AAAAJGQ1ZmUyMTc3LWYyZDAtNDBiNi05ZGI0LWY2ODgyNzM5YmZjYw.jpg",
+	"message" : "Welcome to my resume."
+};
 
-	var bio = {
-		"name" : "Sean Holcomb",
-		"role" : "Web Developer",
-		"contacts" : {
-			"mobile" : "(858)449-5236",
-			"email" : "seanholcomb@gmail.com",
-			"github" : "sean-holcomb",
-			"location" : "San Diego"
-		},
-		"skills" : [
-			"JavaScript", "Python", "Java", "SQL", "Android", "HTML5", "CSS3"
-		],
-		"bioPic": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAL3AAAAJGQ1ZmUyMTc3LWYyZDAtNDBiNi05ZGI0LWY2ODgyNzM5YmZjYw.jpg",
-		"message" : "Welcome to my resume."
-	};
+bio.display = function(){
+
+
 
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -37,20 +39,24 @@ function displayHeader(){
 			$("#skills").append(formattedSkill);
 		}
 	}
+	$("#main").append(internationalizeButton);
+	$("#mapDiv").append(googleMap);
 }
 
-function displayProjects(){
+var projects = {
+	"project" : [
+		{
+			"title" : "Ipsum Lorum",
+			"dates" : "November 2015",
+			"desc" : "Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum",
+			"images" : []
+		}
+	]
+}
 
-	var projects = {
-		"project" : [
-			{
-				"title" : "Ipsum Lorum",
-				"dates" : "November 2015",
-				"desc" : "Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum",
-				"images" : []
-			}
-		]
-	}
+projects.display= function(){
+
+
 
 	for (i in projects.project){
 		$("#projects").append(HTMLprojectStart);
@@ -69,18 +75,21 @@ function displayProjects(){
 	}
 }
 
-function displayWork(){
+var work = {
+	"jobs" : [
+		{
+			"title" : "Waiter",
+			"employer" : "Ki's Restaurant",
+			"dates" : "October 2014 - December 2015",
+			"description" : "Take orders and ensure quility dinning experience for customers.",
+			"location" : "San Diego, CA, US"
+		}
+	]
+};
 
-	var work = {
-		"jobs" : [
-			{
-				"title" : "Waiter",
-				"employer" : "Ki's Restaurant",
-				"dates" : "October 2014 - December 2015",
-				"description" : "Take orders and ensure quility dinning experience for customers."
-			}
-		]
-	};
+work.display = function(){
+
+
 
 	for (job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
@@ -97,40 +106,39 @@ function displayWork(){
 	}
 }
 
-function displayEducation(){
+var education = {
+	"schools" : [
+		{
+			"name" : "University of California Santa Cruz",
+			"location" : "Santa Cruz, CA, US",
+			"dates" : "2010-2013",
+			"degree" : "B.A.",
+			"major" : "History"
+		}
+	],
+	"onlineCourses" : [
+		{
+			"title" : "Android Developer Nanodegree",
+			"onlineSchool" : "Udacity",
+			"dates" : "June 2015 - November 2015",
+			"url" : "Udacity.com"
+		},
+		{
+			"title" : "Front-End Web Developer Nanodegree",
+			"onlineSchool" : "Udacity",
+			"dates" : "November 2015 - January 2015",
+			"url" : "Udacity.com"
+		},
+		{
+			"title" : "Full Stack Web Developer Nanodegree",
+			"onlineSchool" : "Udacity",
+			"dates" : "November 2015 - January 2015",
+			"url" : "Udacity.com"
+		}
+	]
+}
 
-	var education = {
-		"schools" : [
-			{
-				"name" : "University of California Santa Cruz",
-				"location" : "Santa Cruz, CA, US",
-				"dates" : "2010-2013",
-				"degree" : "B.A.",
-				"major" : "History"
-			}
-		],
-		"onlineCourses" : [
-			{
-				"title" : "Android Developer Nanodegree",
-				"onlineSchool" : "Udacity",
-				"dates" : "June 2015 - November 2015",
-				"url" : "Udacity.com"
-			},
-			{
-				"title" : "Front-End Web Developer Nanodegree",
-				"onlineSchool" : "Udacity",
-				"dates" : "November 2015 - January 2015",
-				"url" : "Udacity.com"
-			},
-			{
-				"title" : "Full Stack Web Developer Nanodegree",
-				"onlineSchool" : "Udacity",
-				"dates" : "November 2015 - January 2015",
-				"url" : "Udacity.com"
-			}
-		]
-	}
-
+education.display = function(){
 
 	for (school in education.schools){
 		$("#education").append(HTMLschoolStart);
@@ -163,17 +171,25 @@ function displayEducation(){
 	}
 }
 
-function InternationalizeName(oldName) {
-    var finalName = oldName;
+function locationizer(work){
+	locs = [];
+	for (job in work.jobs){
+		locs.append(work.jobs[job].location);
+	}
+	return locs;
+}
+
+function inName() {
+    var finalName = $('#name').text();
     finalName=finalName.toLowerCase();
     var name=finalName.split(" ");
-    name[0]=name[0].slice(0,1).toUpperCase()+name[0].slice(1).toLowerCase();
+    name[0]=name[0].slice(0,1).toUpperCase()+name[0].slice(1);
     name[1]=name[1].toUpperCase();
     finalName=name.join(" ");
     return finalName;
 }
 
-displayHeader();
-displayProjects();
-displayWork();
-displayEducation();
+bio.display();
+projects.display();
+work.display();
+education.display();
