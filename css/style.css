@@ -26,7 +26,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #000099;
   line-height: 48px;
   display: inline;
 }
@@ -60,6 +60,7 @@ h5 {
   padding:10px 5%;
 
 }
+
 
 
 .date-text {
@@ -100,7 +101,7 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #000099;
   display: none;
 }
 
@@ -127,7 +128,6 @@ a {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 #header {
   background-color: #484848;
 }
@@ -167,6 +167,22 @@ span {
 #lets-connect {
   text-align: center;
 }
+
+/*Custom CSS  */
+.blue {
+  background-color: #000099;
+}
+
+.blue-text {
+  color: #000099;
+}
+
+#main {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 /* Media queries to handle various device widths */
 

@@ -24,10 +24,12 @@ bio.display = function(){
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.message);
 
 	$("#header").prepend(formattedRole);
 	$("#header").prepend(formattedName);
 	$("#header").append(formattedPic);
+	$("#header").append(formattedMsg);
 	$("#topContacts").append(formattedEmail);
 	$("#topContacts").append(formattedMobile);
 	$("#topContacts").append(formattedGithub);
