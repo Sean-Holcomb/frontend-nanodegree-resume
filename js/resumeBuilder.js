@@ -43,7 +43,7 @@ bio.display = function(){
 	}
 	$("#main").append(internationalizeButton);
 	$("#mapDiv").append(googleMap);
-}
+};
 
 var projects = {
 	"project" : [
@@ -54,7 +54,7 @@ var projects = {
 			"images" : []
 		}
 	]
-}
+};
 
 projects.display= function(){
 
@@ -70,12 +70,12 @@ projects.display= function(){
 		$(".project-entry:last").append(formTitle);
 		$(".project-entry:last").append(formDates);
 		$(".project-entry:last").append(formDesc);
-		for (pic in projects.project[i].images){
+		for (var pic in projects.project[i].images){
 			var formImage = HTMLprojectImage.replace("%data%", projects.project[i].images[pic]);
 			$(".project-entry:last").append(formImage);
 		}
 	}
-}
+};
 
 var work = {
 	"jobs" : [
@@ -93,7 +93,7 @@ work.display = function(){
 
 
 
-	for (job in work.jobs){
+	for (var job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
 
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -106,7 +106,7 @@ work.display = function(){
 		$(".work-entry:last").append(formattedDates);
 		$(".work-entry:last").append(formattedDescription);
 	}
-}
+};
 
 var education = {
 	"schools" : [
@@ -138,11 +138,11 @@ var education = {
 			"url" : "Udacity.com"
 		}
 	]
-}
+};
 
 education.display = function(){
 
-	for (school in education.schools){
+	for (var school in education.schools){
 		$("#education").append(HTMLschoolStart);
 
 		var formName = HTMLschoolName.replace("%data%", education.schools[school].name);
@@ -158,7 +158,7 @@ education.display = function(){
 		$(".education-entry:last").append(fromMajorDeg);
 	}
 
-	for (oClass in education.onlineCourses){
+	for (var oClass in education.onlineCourses){
 		$("#education").append(HTMLschoolStart);
 
 		var formTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[oClass].title);
@@ -171,15 +171,15 @@ education.display = function(){
 		$(".education-entry:last").append(formDates);
 		$(".education-entry:last").append(formUrl);
 	}
-}
+};
 
 function locationizer(work){
 	locs = [];
-	for (job in work.jobs){
+	for (var job in work.jobs){
 		locs.append(work.jobs[job].location);
 	}
 	return locs;
-}
+};
 
 function inName() {
     var finalName = $('#name').text();
@@ -189,7 +189,7 @@ function inName() {
     name[1]=name[1].toUpperCase();
     finalName=name.join(" ");
     return finalName;
-}
+};
 
 bio.display();
 projects.display();
