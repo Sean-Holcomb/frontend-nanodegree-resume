@@ -43,7 +43,7 @@ bio.display = function(){
 	if(bio.skills.length > 0) {
 		$('#header').append(HTMLskillsStart);
 		var formattedSkill;
-		var len = bio.skills.length
+		var len = bio.skills.length;
 		for (var skill = 0; skill < len; skill += 1){
 			formattedSkill = HTMLskills.replace('%data%', bio.skills[skill]);
 			$('#skills').append(formattedSkill);
@@ -63,11 +63,11 @@ var projects = {
 	]
 };
 
-projects.display= function(){
+projects.display = function(){
 
 
-
-	for (var i in projects.project){
+	var len = projects.project.length;
+	for (var i = 0; i < len; i += 1){
 		$('#projects').append(HTMLprojectStart);
 
 		var formTitle = HTMLprojectTitle.replace('%data%', projects.project[i].title);
@@ -77,7 +77,8 @@ projects.display= function(){
 		$('.project-entry:last').append(formTitle)
 			.append(formDates)
 			.append(formDesc);
-		for (var pic = 0; pic < projects.project[i].images.length; pic += 1){
+		var leng = projects.project[i].images.length;
+		for (var pic = 0; pic < leng; pic += 1){
 			var formImage = HTMLprojectImage.replace('%data%', projects.project[i].images[pic]);
 			$('.project-entry:last').append(formImage);
 		}
@@ -99,8 +100,8 @@ var work = {
 work.display = function(){
 
 
-
-	for (var job in work.jobs){
+	var len = work.jobs.length;
+	for (var job = 0; job < len; job += 1){
 		$('#workExperience').append(HTMLworkStart);
 
 		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
@@ -120,7 +121,7 @@ var education = {
 		{
 			'name' : 'University of California Santa Cruz',
 			'location' : 'Santa Cruz, CA, US',
-			'dates' : '2013',
+			'dates' : 2013,
 			'degree' : 'B.A.',
 			'major' : ['History'],
 			'url' : 'filler'
@@ -130,19 +131,19 @@ var education = {
 		{
 			'title' : 'Android Developer Nanodegree',
 			'school' : 'Udacity',
-			'date' : '2015',
+			'date' : 2015,
 			'url' : 'Udacity.com'
 		},
 		{
 			'title' : 'Front-End Web Developer Nanodegree',
 			'school' : 'Udacity',
-			'date' : '2015',
+			'date' : 2015,
 			'url' : 'Udacity.com'
 		},
 		{
 			'title' : 'Full Stack Web Developer Nanodegree',
 			'school' : 'Udacity',
-			'date' : '2015',
+			'date' : 2015,
 			'url' : 'Udacity.com'
 		}
 	]
@@ -150,7 +151,8 @@ var education = {
 
 education.display = function(){
 
-	for (var school in education.schools){
+	len = education.schools.length;
+	for (var school = 0; school < len; school += 1){
 		$('#education').append(HTMLschoolStart);
 
 		var formName = HTMLschoolName.replace('%data%', education.schools[school].name);
@@ -166,7 +168,8 @@ education.display = function(){
 			.append(fromMajorDeg);
 	}
 
-	for (var oClass in education.onlineCourses){
+	leng = education.onlineCourses.length;
+	for (var oClass = 0; oClass < leng; oClass += 1){
 		$('#education').append(HTMLschoolStart);
 
 		var formTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[oClass].title);
