@@ -37,7 +37,7 @@ The <head> of a website generally links to important resources the page will
     Uncomment the <script> tag below when you're ready to add an interactive
     Google Map to your resume!
     -->
-    <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <meta name="viewport" content="width=device-width">
   </head>
   <body>
@@ -67,14 +67,20 @@ The <head> of a website generally links to important resources the page will
       </div>
       <div style="clear: both;">
       </div>
-      <div id="projects" class="gray">
-        <h2>Projects</h2>
-      </div>
-      <div id="workExperience">
-        <h2>Work Experience</h2>
-      </div>
-      <div id="education" class="gray">
-        <h2>Education</h2>
+      <div class="container">
+        <div class="row">
+          <div id="education" class="gray col-md-3">
+            <h2>Education</h2>
+          </div>
+          <div class="col-md-9">
+            <div id="projects">
+              <h2>Projects</h2>
+            </div>
+            <div id="workExperience">
+              <h2>Work Experience</h2>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="mapDiv">
         <h2>Where I've Lived and Worked</h2>
